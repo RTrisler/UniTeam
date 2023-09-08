@@ -37,25 +37,25 @@ public class FarmPlotStateController : MonoBehaviour
     }
 
     // Convert a nonarable tile to an arable tile
+    // Note: The method and process of farm expansion can be decided later.
     public void AcquireArableFarmland(GameObject farmRegion)
     {
-        List<GameObject> farmRegionPlots = Farms[farmRegion];
+        List<GameObject> farmPlots = Farms[farmRegion];
 
-        List<FarmPlot> nonArableFarmRegionPlots = new List<FarmPlot>();
-        foreach (GameObject farmRegionPlot in farmRegionPlots)
+        List<FarmPlot> nonArableFarmPlots = new List<FarmPlot>();
+        foreach (GameObject farmPlot in farmPlots)
         {
-            FarmPlot farmPlot = farmRegionPlot.GetComponent<FarmPlot>();
+            FarmPlot farmPlot = farmPlot.GetComponent<FarmPlot>();
             if (!farmPlot.IsArable)
-                nonArableFarmRegionPlots.Add(farmPlot);
+                nonArableFarmPlots.Add(farmPlot);
         }
 
-        if (nonArableFarmRegionPlots.Count == 0)
+        if (nonArableFarmPlots.Count == 0)
             return;
         
         // Select random nonarable plot of farmland from list of nonarable plots of farmland
-        // Note: The method and process of farm expansion can be decided later.
-        FarmPlot selectedFarmRegionPlot = nonArableFarmRegionPlots.ElementAt(
-            Random.Range(0, nonArableFarmRegionPlots.Count - 1));
+        FarmPlot selectedFarmPlot = nonArablePlots.ElementAt(
+            Random.Range(0, nonArableFarmPlots.Count - 1));
 
         // Update the farmland to be arable, and update the tile sprite to represent arable land
         selectedFarmRegionPlot.IsArable = true;
