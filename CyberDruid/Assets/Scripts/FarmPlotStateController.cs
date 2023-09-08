@@ -14,6 +14,7 @@ public class FarmPlotStateController : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log("Press \"C\" to make a non-arable plot of farm land arable.");
         // Create and populate a dictionary mapping farm regions to their set of farm plots
         Farms = new Dictionary<GameObject, List<GameObject>>();
 
@@ -40,12 +41,12 @@ public class FarmPlotStateController : MonoBehaviour
     // Note: The method and process of farm expansion can be decided later.
     public void AcquireArableFarmland(GameObject farmRegion)
     {
-        List<GameObject> farmPlots = Farms[farmRegion];
+        List<GameObject> farmRegionPlots = Farms[farmRegion];
 
         List<FarmPlot> nonArableFarmPlots = new List<FarmPlot>();
-        foreach (GameObject farmPlot in farmPlots)
+        foreach (GameObject farmRegionPlot in farmRegionPlots)
         {
-            FarmPlot farmPlot = farmPlot.GetComponent<FarmPlot>();
+            FarmPlot farmPlot = farmRegionPlot.GetComponent<FarmPlot>();
             if (!farmPlot.IsArable)
                 nonArableFarmPlots.Add(farmPlot);
         }
@@ -54,12 +55,12 @@ public class FarmPlotStateController : MonoBehaviour
             return;
         
         // Select random nonarable plot of farmland from list of nonarable plots of farmland
-        FarmPlot selectedFarmPlot = nonArablePlots.ElementAt(
+        FarmPlot selectedFarmPlot = nonArableFarmPlots.ElementAt(
             Random.Range(0, nonArableFarmPlots.Count - 1));
 
         // Update the farmland to be arable, and update the tile sprite to represent arable land
-        selectedFarmRegionPlot.IsArable = true;
-        selectedFarmRegionPlot.gameObject.GetComponent<SpriteRenderer>()
+        selectedFarmPlot.IsArable = true;
+        selectedFarmPlot.gameObject.GetComponent<SpriteRenderer>()
             .color = new Color(0.1152545f, 0.6603774f, 0.2449462f, 1.0f);
     }
 }
