@@ -9,11 +9,12 @@ public class NewBehaviourScript : MonoBehaviour
     public Rigidbody2D rb;
 
     private Vector2 moveDirection;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,5 +40,13 @@ public class NewBehaviourScript : MonoBehaviour
     void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        setAnimatorMovement(moveDirection);
+    }
+
+    private void setAnimatorMovement(Vector2 direction)
+    {
+        animator.SetFloat("xDir", direction.x);
+        animator.SetFloat("yDir", direction.y);
+        print(animator.GetFloat("xDir"));
     }
 }
