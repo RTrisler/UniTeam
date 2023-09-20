@@ -7,5 +7,4 @@ public class FarmPlot : MonoBehaviour
     public FarmPlotState State;
     public bool IsArable;
     public Vector2 Location;
-    public bool IsLocationFixed;
 }

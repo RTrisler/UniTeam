@@ -5,82 +5,77 @@ using UnityEngine;
 
 public class FarmPlotStateController : MonoBehaviour
 {
-    //[SerializeField]
-    //List<GameObject> FarmRegions;
+    // Public fields
+    public List<GameObject> FarmRegions;
+    //  Note: Child objects of FarmRegion GameObjects are GameObjects with FarmPlot components
+
+    // Inspector fields
     [SerializeField]
     MapTileManager MapTileManager;
-
     [SerializeField]
     GameObject _prefab_FarmRegion;
     [SerializeField]
     GameObject _prefab_FarmPlot;
 
-    // Note: Child objects of farm regions are GameObjects with FarmPlot components
-    public List<GameObject> FarmRegions;
+    // Private fields
+    Dictionary<GameObject, List<FarmPlot>> FarmPlots;
+    //  Note: Dictionary maps FarmRegion GameObject to its children object's FarmPlot components
+    //          => FarmPlots[FarmRegions.First()] = list of FarmPlot components from a farm region's child objects
+
+    GameObject TestFarmRegion;
 
     public void Start()
     {
-        //Debug.Log("Press \"C\" to make a non-arable plot of farm land arable.");
-        // Create and populate a dictionary mapping farm regions to their set of farm plots
-        
-        /*
-        foreach (GameObject farmRegion in FarmRegions)
-        {
-            List<GameObject> farmRegionPlots = new List<GameObject>();
-            for (int i = 0; i < farmRegion.transform.childCount; i++)
-            {
-                farmRegionPlots.Add(farmRegion.transform.GetChild(i).gameObject);
-            }
-            Farms[farmRegion] = farmRegionPlots;
-            TestRegion = farmRegion;
-        }
-        */
+        Debug.Log("Press 'C' to create a test farm region with 6 nonarable farm plots.");
+        Debug.Log("(After pressing 'C') Press 'X' to convert a nonarable farm plot to an arable farm plot.");
+
+        FarmPlots = new Dictionary<GameObject, List<FarmPlot>>();
     }
 
     public void Update()
     {
         // Test input for initializing farm functionality test
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("Initialize farm test key pressed...");
-            InitializeFarmTest();
+            InitializeFarm_Test();
         }
 
         // Test input for land acquisition functionality
-        //if (Input.GetKeyDown(KeyCode.C))
-            //AcquireArableFarmland(TestRegion);
+        if (Input.GetKeyDown(KeyCode.X) && TestFarmRegion != null)
+        {
+            Debug.Log("Acquire arable land test key pressed...");
+            AcquireArableFarmPlot_Test(TestFarmRegion);
+        }
     }
 
     // Convert a nonarable tile to an arable tile
     // Note: The method and process of farm expansion can be decided later.
-    public void AcquireArableFarmland(GameObject farmRegion)
+    public void AcquireArableFarmPlot_Test(GameObject farmRegion)
     {
-        /*
-        List<GameObject> farmRegionPlots = Farms[farmRegion];
-
         List<FarmPlot> nonArableFarmPlots = new List<FarmPlot>();
-        foreach (GameObject farmRegionPlot in farmRegionPlots)
+        foreach (FarmPlot farmPlot in FarmPlots[farmRegion])
         {
-            FarmPlot farmPlot = farmRegionPlot.GetComponent<FarmPlot>();
             if (!farmPlot.IsArable)
                 nonArableFarmPlots.Add(farmPlot);
         }
 
         if (nonArableFarmPlots.Count == 0)
+        {
+            Debug.Log("Cannot acquire more arable farm plots - no more nonarable farm plots exist.");
             return;
-        
-        // Select random nonarable plot of farmland from list of nonarable plots of farmland
+        }
+            
+
         FarmPlot selectedFarmPlot = nonArableFarmPlots.ElementAt(
             Random.Range(0, nonArableFarmPlots.Count - 1));
 
-        // Update the farmland to be arable, and update the tile sprite to represent arable land
         selectedFarmPlot.IsArable = true;
-        selectedFarmPlot.gameObject.GetComponent<SpriteRenderer>()
-            .color = new Color(0.1152545f, 0.6603774f, 0.2449462f, 1.0f);
-        */
+
+        Debug.Log("Farm plot at location (" + selectedFarmPlot.Location.x + ", " + selectedFarmPlot.Location.y + ") is now arable.");
     }
 
-    void InitializeFarmTest()
+    void InitializeFarm_Test()
     {
         List<Vector3Int> testFarmPlotCoordinates = new List<Vector3Int>();
         for (int x = -7; x <= -5; x++)
@@ -97,17 +92,23 @@ public class FarmPlotStateController : MonoBehaviour
 
         // Create FarmRegion GameObject - children of FarmRegion are GameObjects with FarmPlot component
         GameObject testFarmRegion = Instantiate(_prefab_FarmRegion, new Vector3(0,0,0), Quaternion.identity);
+
+        List<FarmPlot> testFarmPlots = new List<FarmPlot>();
         foreach (Vector3Int coord in testFarmPlotCoordinates)
         {
             // Instantiate FarmPlot GameObjects, assign location acoordingly
-            GameObject testFarmPlot = Instantiate(_prefab_FarmPlot, new Vector3(0,0,0), Quaternion.identity);
-            testFarmPlot.GetComponent<FarmPlot>().Location = new Vector2 { x = coord.x, y = coord.y };
+            FarmPlot testFarmPlot = Instantiate(_prefab_FarmPlot, new Vector3(0,0,0), Quaternion.identity).GetComponent<FarmPlot>();
+            testFarmPlot.Location = new Vector2 { x = coord.x, y = coord.y };
 
             // Set farm plot to be child of farm region object
             testFarmPlot.transform.parent = testFarmRegion.transform;
+
+            testFarmPlots.Add(testFarmPlot);
         }
 
         FarmRegions = new List<GameObject> { testFarmRegion };
-        Debug.Log("FarmRegions assigned");
+        FarmPlots[testFarmRegion] = testFarmPlots;
+        TestFarmRegion = testFarmRegion;
+        Debug.Log("FarmRegion and FarmPlots created.");
     }
 }
