@@ -275,6 +275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapTileManager: {fileID: 663204462}
   _prefab_FarmRegion: {fileID: 4315102657991690143, guid: cb1e716580839134abc9919670dae7e8, type: 3}
+  _prefab_FarmPlot: {fileID: 1524905162526532590, guid: 60d96186373184f44877c9e12a560015, type: 3}
+  FarmRegions: []
 --- !u!1001 &535832857
 PrefabInstance:
   m_ObjectHideFlags: 0

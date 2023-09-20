@@ -40,6 +40,5 @@ public class MapTileManager : MonoBehaviour
     void Update()
     {
         playerCurrentTile = Tilemap.WorldToCell(playerTransform.position);
-        //Debug.Log("Player current tile: (" + playerCurrentTile.x + ", " + playerCurrentTile.y + ")");
     }
 }

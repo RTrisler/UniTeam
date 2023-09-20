@@ -12,17 +12,17 @@ public class FarmPlotStateController : MonoBehaviour
 
     [SerializeField]
     GameObject _prefab_FarmRegion;
+    [SerializeField]
+    GameObject _prefab_FarmPlot;
 
-    Dictionary<List<Vector3Int>, List<GameObject>> Farms;
-
-    GameObject TestRegion;
+    // Note: Child objects of farm regions are GameObjects with FarmPlot components
+    public List<GameObject> FarmRegions;
 
     public void Start()
     {
-        Debug.Log("Press \"C\" to make a non-arable plot of farm land arable.");
+        //Debug.Log("Press \"C\" to make a non-arable plot of farm land arable.");
         // Create and populate a dictionary mapping farm regions to their set of farm plots
         
-        Farms = new Dictionary<List<Vector3Int>, List<GameObject>>();
         /*
         foreach (GameObject farmRegion in FarmRegions)
         {
@@ -41,11 +41,14 @@ public class FarmPlotStateController : MonoBehaviour
     {
         // Test input for initializing farm functionality test
         if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("Initialize farm test key pressed...");
             InitializeFarmTest();
+        }
 
         // Test input for land acquisition functionality
-        if (Input.GetKeyDown(KeyCode.C))
-            AcquireArableFarmland(TestRegion);
+        //if (Input.GetKeyDown(KeyCode.C))
+            //AcquireArableFarmland(TestRegion);
     }
 
     // Convert a nonarable tile to an arable tile
@@ -92,17 +95,19 @@ public class FarmPlotStateController : MonoBehaviour
             }
         }
 
+        // Create FarmRegion GameObject - children of FarmRegion are GameObjects with FarmPlot component
         GameObject testFarmRegion = Instantiate(_prefab_FarmRegion, new Vector3(0,0,0), Quaternion.identity);
         foreach (Vector3Int coord in testFarmPlotCoordinates)
         {
-            Instantiate(_prefab_FarmPlot), new Vector3(0,0,0), Quaternion.identity);
+            // Instantiate FarmPlot GameObjects, assign location acoordingly
+            GameObject testFarmPlot = Instantiate(_prefab_FarmPlot, new Vector3(0,0,0), Quaternion.identity);
+            testFarmPlot.GetComponent<FarmPlot>().Location = new Vector2 { x = coord.x, y = coord.y };
+
+            // Set farm plot to be child of farm region object
+            testFarmPlot.transform.parent = testFarmRegion.transform;
         }
 
-        Farms[testFarmPlotCoordinates] = GetTestFarmGameObjects();
-    }
-
-    List<GameObject> GetTestFarmGameObjects()
-    {
-        return new List<GameObject>();
+        FarmRegions = new List<GameObject> { testFarmRegion };
+        Debug.Log("FarmRegions assigned");
     }
 }
