@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 public class MapTileManager : MonoBehaviour
 {
     // Public fields
-    public Vector3Int playerCurrentTile;
+    public Vector3Int PlayerCurrentTile;
     public List<Vector3Int> TileGridCoordinates;
     //  Note: First element in list = [-18,-9] (bottomleftmost tile), last element = [18,8] (upperrightmost tile)
     //          => X range: -18 -> 8, Y range: -9 -> 8, 0 inclusive
@@ -35,6 +35,6 @@ public class MapTileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerCurrentTile = Tilemap.WorldToCell(playerTransform.position);
+        PlayerCurrentTile = Tilemap.WorldToCell(playerTransform.position);
     }
 }
