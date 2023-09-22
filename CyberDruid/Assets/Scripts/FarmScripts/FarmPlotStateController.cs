@@ -36,22 +36,22 @@ public class FarmPlotStateController : MonoBehaviour
     {
         /* TEST FARM SETUP */
         // Test input for initializing farm functionality test
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && !IsTestFarmCreated)
         {
-            Debug.Log("Initialize farm test key pressed...");
+            Debug.Log("DEBUG COMMAND: Initialize farm test key pressed...");
             IsTestFarmCreated = true;
-            InitializeFarm_Test();
+            DEBUG_InitializeFarmTest();
         }
         else if (Input.GetKeyDown(KeyCode.C) && IsTestFarmCreated)
         {
-            Debug.Log("Initialize farm test key pressed, but the test farm has already been created. Doing nothing.");
+            Debug.Log("DEBUG COMMAND: Initialize farm test key pressed, but the test farm has already been created. Doing nothing.");
         }
 
         // Test input for land acquisition functionality
         if (Input.GetKeyDown(KeyCode.X) && FarmRegions.Count > 0)
         {
-            Debug.Log("Acquire arable land test key pressed...");
-            AcquireArableFarmPlot(FarmRegions.First());
+            Debug.Log("DEBUG COMMAND: Acquire arable land test key pressed...");
+            DEBUG_AcquireArableFarmPlot(FarmRegions.First());
         }
 
         // Test input for progressing plant growth
@@ -75,20 +75,6 @@ public class FarmPlotStateController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             HarvestPlant();
-        }
-    }
-
-    public void DEBUG_ProgressCropGrowth()
-    {
-        List<FarmPlot> farmPlots = FarmPlots[FarmRegions.First()];
-
-        foreach (FarmPlot farmPlot in farmPlots)
-        {
-            if (farmPlot.State == FarmPlotState.Sown)
-            {
-                farmPlot.State = FarmPlotState.Grown;
-                Debug.Log("DEBUG COMMAND: Progressed plant growth. Sown plots are now ready for harvest.");
-            }
         }
     }
 
@@ -165,7 +151,7 @@ public class FarmPlotStateController : MonoBehaviour
     // Convert a farm plot. Changes plot state from Nonarable > Arable
     // Note: The method and process of farm expansion can be decided later.
     //       Currently, tile states from the test hardcoded farm region are randomly swapped
-    public void AcquireArableFarmPlot(GameObject farmRegion)
+    public void DEBUG_AcquireArableFarmPlot(GameObject farmRegion)
     {
         List<FarmPlot> nonArableFarmPlots = new List<FarmPlot>();
         foreach (FarmPlot farmPlot in FarmPlots[farmRegion])
@@ -176,7 +162,7 @@ public class FarmPlotStateController : MonoBehaviour
 
         if (nonArableFarmPlots.Count == 0)
         {
-            Debug.Log("No more nonarable farm plots exist, cannot acquire any more farm plots.");
+            Debug.Log("DEBUG COMMAND: No more nonarable farm plots exist, cannot acquire any more farm plots.");
             return;
         }
 
@@ -185,11 +171,11 @@ public class FarmPlotStateController : MonoBehaviour
 
         selectedFarmPlot.State = FarmPlotState.Arable;
 
-        Debug.Log("Farm plot at location (" + selectedFarmPlot.Location.x + ", " + selectedFarmPlot.Location.y + ") is now arable.");
+        Debug.Log("DEBUG COMMAND: Farm plot at location (" + selectedFarmPlot.Location.x + ", " + selectedFarmPlot.Location.y + ") is now arable.");
     }
 
     // Initialize game objects to track farm regions + farm tiles and state
-    void InitializeFarm_Test()
+    void DEBUG_InitializeFarmTest()
     {
         List<Vector3Int> testFarmPlotCoordinates = new List<Vector3Int>();
         for (int x = -7; x <= -5; x++)
@@ -223,5 +209,20 @@ public class FarmPlotStateController : MonoBehaviour
         FarmRegions = new List<GameObject> { testFarmRegion };
         FarmPlots[testFarmRegion] = testFarmPlots;
         Debug.Log("FarmRegion and FarmPlots created.");
+    }
+
+    public void DEBUG_ProgressCropGrowth()
+    {
+        List<FarmPlot> farmPlots = FarmPlots[FarmRegions.First()];
+
+        foreach (FarmPlot farmPlot in farmPlots)
+        {
+            if (farmPlot.State == FarmPlotState.Sown)
+            {
+                farmPlot.State = FarmPlotState.Grown;
+            }
+        }
+
+        Debug.Log("DEBUG COMMAND: Progressed plant growth. Sown plots are now ready for harvest.");
     }
 }

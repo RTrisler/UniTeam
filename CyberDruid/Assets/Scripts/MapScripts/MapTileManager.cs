@@ -32,7 +32,6 @@ public class MapTileManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerCurrentTile = Tilemap.WorldToCell(playerTransform.position);
