@@ -60,7 +60,6 @@ public class FarmPlotStateController : MonoBehaviour
             DEBUG_ProgressCropGrowth();
         }
 
-
         /* PLAYER FARM INTERACTIONS */
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -91,6 +90,7 @@ public class FarmPlotStateController : MonoBehaviour
             targetFarmPlot.State = FarmPlotState.Arable;
             Debug.Log("Plant harvested from farm plot at location (" + targetFarmPlot.Location.x + ", " + targetFarmPlot.Location.y + ").");
         }
+
         else
             Debug.Log("Player is not standing on a farm plot with a fully grown plant. There is no plant to harvest here. I am deeply upset.");
     }
@@ -147,6 +147,8 @@ public class FarmPlotStateController : MonoBehaviour
 
         return targetFarmPlot;
     }
+
+    /* DEBUG METHODS */
 
     // Convert a farm plot. Changes plot state from Nonarable > Arable
     // Note: The method and process of farm expansion can be decided later.
