@@ -83,6 +83,6 @@ public class PlayerStats : MonoBehaviour
     public void AddCurrency(CurrencyPickup currency)
     {
         coins += currency.pickupValue;
-        currencyText.text = currency.pickupValue.ToString();
+        currencyText.text = coins.ToString();
     }
 }
