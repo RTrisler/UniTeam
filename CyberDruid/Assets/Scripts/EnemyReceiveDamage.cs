@@ -10,6 +10,7 @@ public class EnemyReceiveDamage : MonoBehaviour
     public float maxHealth;
     public GameObject healthBar;
     public Slider healthBarSlider;
+    public GameObject lootDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class EnemyReceiveDamage : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
     }
 
