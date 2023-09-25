@@ -5,17 +5,25 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    // TO DO: Before implementing spawner create an enemy base class 
+    public List<GameObject> Enemies = new List<GameObject>();
+    public float delay;
+    private float x, y;
+    private Vector3 spawnPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(SpawnEnemy());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SpawnEnemy()
     {
-        
+        x = Random.Range(-1, 1);
+        y = Random.Range(-1, 1);
+        spawnPos.x += x;
+        spawnPos.y += y;
+        Instantiate(Enemies[0], spawnPos, Quaternion.identity);
+        yield return new WaitForSeconds(delay);
+        StartCoroutine(SpawnEnemy());
     }
 }
