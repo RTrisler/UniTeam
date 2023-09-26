@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 3101013930892251655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -86,9 +86,9 @@ GameObject:
   - component: {fileID: 1146755786940349055}
   - component: {fileID: 4792603006215143394}
   - component: {fileID: 7609782719045181022}
-  - component: {fileID: 6752473537710243219}
   - component: {fileID: 675236229229260899}
-  m_Layer: 0
+  - component: {fileID: 3795027279889601917}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -208,20 +208,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0331235, y: 1.5702772}
   m_EdgeRadius: 0
---- !u!114 &6752473537710243219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983584853621424810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b398bf7e91f9f409bbf18f54e5b939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 100
 --- !u!114 &675236229229260899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,11 +221,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 510312164412010375, guid: 1357263558cec1940b39d50b3823649c, type: 3}
-  player: {fileID: 0}
   minDamage: 20
   maxDamage: 30
   projectileForce: 5
   cooldown: 3
+--- !u!114 &3795027279889601917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983584853621424810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a230124df93d94c4caf7fdf1b8952c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  healthBar: {fileID: 2584940292461051044}
+  healthBarSlider: {fileID: 6109683207285291936}
+  lootDrop: {fileID: 314855393012005064, guid: 0c607fe07ef5b6e4d8f123404530728c, type: 3}
 --- !u!1 &1091032225663335136
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &490267959380794360
 RectTransform:
   m_ObjectHideFlags: 0

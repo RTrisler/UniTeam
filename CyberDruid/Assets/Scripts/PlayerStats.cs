@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
 
     public float health;
     public float maxHealth;
+    public int coins;
+    public TextMeshProUGUI currencyText;
 
     void Awake()
     {
@@ -76,5 +78,11 @@ public class PlayerStats : MonoBehaviour
     private float CalculateHealthPercentage()
     {
         return (health / maxHealth);
+    }
+
+    public void AddCurrency(CurrencyPickup currency)
+    {
+        coins += currency.pickupValue;
+        currencyText.text = coins.ToString();
     }
 }

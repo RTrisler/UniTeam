@@ -9,9 +9,9 @@ public class TestProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.name != "Player")
         {
-            if(collision.GetComponent<EnemyReceiveDamage>() != null)
+            if(collision.GetComponent<Enemy>() != null)
             {
-                collision.GetComponent<EnemyReceiveDamage>().DealDamage(damage);
+                collision.GetComponent<Enemy>().DealDamage(damage);
             }
             Destroy(gameObject);
         }
