@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2374007132583592365}
   - component: {fileID: 3268312456550032661}
   - component: {fileID: -2121907776841193485}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-2121907776841193485
 MonoBehaviour:
   m_ObjectHideFlags: 0

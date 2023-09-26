@@ -10,11 +10,17 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats playerStats;
 
     public GameObject player;
-    public TextMeshProUGUI healthText;
-    public Slider healthSlider;
+
 
     public float health;
     public float maxHealth;
+    public TextMeshProUGUI healthText;
+    public Slider healthSlider;
+
+    public float specialCharge;
+    public float maxSpecialCharge;
+    public Slider specialSlider;
+
     public int coins;
     public TextMeshProUGUI currencyText;
 
@@ -35,9 +41,11 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        specialCharge = 0f;
         SetHealthUI();
     }
 
+    #region Health
     private void SetHealthUI()
     {
         healthSlider.value = CalculateHealthPercentage();
@@ -48,7 +56,7 @@ public class PlayerStats : MonoBehaviour
     {
         health -= damage;
         CheckDeath();
-        SetHealthUI();    
+        SetHealthUI();
     }
 
     public void HealCharacter(float heal)
@@ -80,9 +88,49 @@ public class PlayerStats : MonoBehaviour
         return (health / maxHealth);
     }
 
+    #endregion
+
+    #region Special
+
+    private void SetSpecialUI()
+    {
+        specialSlider.value = CalculateSpecialPercentage();
+    }
+
+    private float CalculateSpecialPercentage()
+    {
+        return (specialCharge / maxSpecialCharge);
+    }
+
+    public void AddCharge(float charge)
+    {
+        specialCharge += charge;
+        CheckOverCharge();
+        SetSpecialUI();
+    }
+
+    public void ResetCharge()
+    {
+        specialCharge = 0f;
+        SetSpecialUI();
+    }
+
+    private void CheckOverCharge()
+    {
+        if (specialCharge >= maxSpecialCharge)
+        {
+            specialCharge = maxSpecialCharge;
+            Debug.Log("special: " + specialCharge);
+        }
+    } 
+
+    #endregion
+
+    #region Currency
     public void AddCurrency(CurrencyPickup currency)
     {
         coins += currency.pickupValue;
         currencyText.text = coins.ToString();
     }
+    #endregion
 }
