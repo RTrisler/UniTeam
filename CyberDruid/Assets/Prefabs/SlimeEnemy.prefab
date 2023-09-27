@@ -88,8 +88,9 @@ GameObject:
   - component: {fileID: 7609782719045181022}
   - component: {fileID: 675236229229260899}
   - component: {fileID: 3795027279889601917}
+  - component: {fileID: -470008979363920341}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: SlimeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b560562aa6d02f4992519fb3a973ddf, type: 3}
+  m_Sprite: {fileID: 4390733311694244257, guid: 31de09676e02e714d98ec97cadfc212c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,8 +199,8 @@ BoxCollider2D:
   m_Offset: {x: -0.015347242, y: -0.2148614}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    pivot: {x: 0.5, y: -0.1707317}
+    oldSize: {x: 0.56, y: 0.41}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -238,12 +239,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 983584853621424810}
-  cost: 2
+  cost: 1
   health: 0
   maxHealth: 100
   healthBar: {fileID: 2584940292461051044}
   healthBarSlider: {fileID: 6109683207285291936}
   lootDrop: {fileID: 314855393012005064, guid: 0c607fe07ef5b6e4d8f123404530728c, type: 3}
+--- !u!95 &-470008979363920341
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983584853621424810}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -177465846536832243, guid: 31de09676e02e714d98ec97cadfc212c, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1091032225663335136
 GameObject:
   m_ObjectHideFlags: 0

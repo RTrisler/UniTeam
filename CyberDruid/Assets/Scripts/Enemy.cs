@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class Enemy : MonoBehaviour
 {
 
+    public GameObject enemyPrefab;
+    public int cost;
     public float health;
     public float maxHealth;
     public GameObject healthBar;

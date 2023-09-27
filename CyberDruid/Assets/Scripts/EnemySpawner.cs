@@ -5,25 +5,72 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public List<GameObject> Enemies = new List<GameObject>();
-    public float delay;
-    private float x, y;
-    private Vector3 spawnPos;
+    public List<Enemy> enemies = new List<Enemy>();
+    public int currWave;
+    public int waveValue;
+    public List<GameObject> enemiesToSpawn = new List<GameObject>();
+    public Transform spawnLocation;
+    public int waveDuration;
+    private float waveTimer;
+    private float spawnInterval;
+    private float spawnTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        GenerateWave();
     }
 
-    IEnumerator SpawnEnemy()
+    void Update() {
+        if (spawnTimer <= 0)
+        {
+            // spawn an enemy
+            if (enemiesToSpawn.Count > 0)
+            {
+                Instantiate(enemiesToSpawn[0], spawnLocation.position, Quaternion.identity);
+                enemiesToSpawn.RemoveAt(0);
+                spawnTimer = spawnInterval;
+            }
+        }
+        else // reduce spawn and wave timers
+        {
+            spawnTimer -= Time.fixedDeltaTime;
+            waveTimer -= Time.fixedDeltaTime;
+        }
+    }
+
+    public void GenerateWave()
     {
-        x = Random.Range(-1, 1);
-        y = Random.Range(-1, 1);
-        spawnPos.x += x;
-        spawnPos.y += y;
-        Instantiate(Enemies[0], spawnPos, Quaternion.identity);
-        yield return new WaitForSeconds(delay);
-        StartCoroutine(SpawnEnemy());
+        waveValue = currWave * 10;
+        GenerateEnemies();
+
+        spawnInterval = waveDuration / enemiesToSpawn.Count; // gives fixed time b/t enemies
+        waveTimer = waveDuration;
+    }
+
+    public void GenerateEnemies()
+    {
+        // Create a temp list of enemies to generate enemies
+        // in a loop grab a random enemy and see if we can afford it
+        // if we can, add it to the list and deduct cost
+        List<GameObject> generatedEnemies = new List<GameObject>();
+        while(waveValue>0)
+        {
+            int randEnemyId = Random.Range(0, enemies.Count);
+            int randEnemyCost = enemies[randEnemyId].cost;
+
+            if(waveValue-randEnemyCost >= 0)
+            {
+                generatedEnemies.Add(enemies[randEnemyId].enemyPrefab);
+                waveValue -= randEnemyCost;
+            }
+            else if (waveValue <= 0)
+            {
+                break;
+            }
+        }
+        enemiesToSpawn.Clear();
+        enemiesToSpawn = generatedEnemies;
+
     }
 }
