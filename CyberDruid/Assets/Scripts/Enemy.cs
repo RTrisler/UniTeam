@@ -15,16 +15,20 @@ public class Enemy : MonoBehaviour
     public Slider healthBarSlider;
     public GameObject lootDrop;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     public void DealDamage(float damage)
     {
         healthBar.SetActive(true);
         health -= damage;
+        animator.Play("Damage", -1, 0f);
         CheckDeath();
         healthBarSlider.value = CalculateHealthPercentage();
     }
@@ -48,9 +52,14 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
-            Instantiate(lootDrop, transform.position, Quaternion.identity);
+            animator.SetTrigger("Death");
         }
+    }
+
+    public void DestoryEnemy()
+    {
+        Instantiate(lootDrop, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private float CalculateHealthPercentage()

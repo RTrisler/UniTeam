@@ -9666,9 +9666,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf18adf5613e644192c79ef949a744a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies:
-  - {fileID: 983584853621424810, guid: eb7fd1c7781c90248bcb71a365d0a68f, type: 3}
-  delay: 3
+  enemies:
+  - {fileID: 8395710386945725606, guid: bdd529e59879cf14d91fa250425f5048, type: 3}
+  - {fileID: 8395710386945725606, guid: bdd529e59879cf14d91fa250425f5048, type: 3}
+  - {fileID: 8395710386945725606, guid: bdd529e59879cf14d91fa250425f5048, type: 3}
+  currWave: 1
+  waveValue: 1
+  enemiesToSpawn: []
+  spawnLocation: {fileID: 1606557233}
+  waveDuration: 30
 --- !u!1 &1660139764
 GameObject:
   m_ObjectHideFlags: 0
@@ -23895,6 +23901,14 @@ PrefabInstance:
     - target: {fileID: 280344586498949920, guid: fca91ec0a7e51bc468090c77aebb2ddb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241775856979653329, guid: fca91ec0a7e51bc468090c77aebb2ddb, type: 3}
+      propertyPath: maxDamage
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241775856979653329, guid: fca91ec0a7e51bc468090c77aebb2ddb, type: 3}
+      propertyPath: minDamage
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4244181119304120986, guid: fca91ec0a7e51bc468090c77aebb2ddb, type: 3}
       propertyPath: m_LocalPosition.x

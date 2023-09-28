@@ -1,0 +1,688 @@
+fileFormatVersion: 2
+guid: 0784b972f5dfd9e4987abdbdec086faf
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 16
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638315129099869188
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: FlyingMine_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 100
+      width: 24
+      height: 22
+    spriteID: aad6d2e37d730d24aaabfab7091c4689
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 204, y: 100}
+  - name: FlyingMine_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.7916667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 69
+      width: 24
+      height: 24
+    spriteID: 2e730af76f9ce8d4d9badce347e5eca0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 69}
+  - name: FlyingMine_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.826087}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 69
+      width: 24
+      height: 23
+    spriteID: 09b9928a360e1cf4b8c5607172e30452
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 204, y: 69}
+  - name: FlyingMine_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.7916667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 69
+      width: 24
+      height: 24
+    spriteID: 1ec8691cd64cdf047b469a0ce134d657
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 69}
+  - name: FlyingMine_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 130
+      width: 24
+      height: 22
+    spriteID: d8707fe2b35c7fe42a6fc2147c08fd94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 130}
+  - name: FlyingMine_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 130
+      width: 24
+      height: 22
+    spriteID: 2100454388c2d6c4b9282e5f97468e93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 130}
+  - name: FlyingMine_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 130
+      width: 24
+      height: 22
+    spriteID: 785c7da8999e88f4abd125c0c80a8c43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 196, y: 130}
+  - name: FlyingMine_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.826087}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 130
+      width: 24
+      height: 23
+    spriteID: 493764ed06ae4aa4f94e59650625598f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 130}
+  - name: FlyingMine_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.826087}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 130
+      width: 24
+      height: 23
+    spriteID: 86bb1b8a6c8eb2d4ebef0b8663686ed9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 130}
+  - name: FlyingMine_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.826087}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 130
+      width: 24
+      height: 23
+    spriteID: 703b93a29ff06854e982180446c7a0ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 130}
+  - name: FlyingMine_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 130
+      width: 24
+      height: 22
+    spriteID: 6f1d14d0b78820d4aadf8ddc1a6c38e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 130}
+  - name: FlyingMine_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.826087}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 130
+      width: 24
+      height: 23
+    spriteID: 8919bb68c7fe841428ab9323d7e8958f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 130}
+  - name: FlyingMine_Frame_12
+    originalName: 
+    pivot: {x: 0.52459013, y: -0.12280702}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 61
+      height: 57
+    spriteID: fca0b77971298f842a1dcb06f9d5b201
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: FlyingMine_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.32608697}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 69
+      width: 64
+      height: 46
+    spriteID: c5b0c4fb164137e4b97c2c055152fbda
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 69}
+  - name: FlyingMine_Frame_14
+    originalName: 
+    pivot: {x: 0.46428573, y: -0.20754717}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 56
+      height: 53
+    spriteID: 0366d367cf02d6e4fa74aa280adc2066
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
+  - name: FlyingMine_Frame_15
+    originalName: 
+    pivot: {x: 0.49180326, y: -0.107142866}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 4
+      width: 61
+      height: 56
+    spriteID: 82401f973fa61344796d65afb9dd1a95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 4}
+  - name: FlyingMine_Frame_16
+    originalName: 
+    pivot: {x: 0.54385966, y: -0.1509434}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 142
+      y: 4
+      width: 57
+      height: 53
+    spriteID: e87221b8d0872e947abb07ba6b90c8c9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 142, y: 4}
+  - name: FlyingMine_Frame_17
+    originalName: 
+    pivot: {x: 0.33333334, y: -0.32432434}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 207
+      y: 4
+      width: 33
+      height: 37
+    spriteID: 741e0e5140160c645a799f110610ce77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 207, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 768760086
+    name: FlyingMine
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: FlyingMine_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 20
+        y: 20
+        width: 24
+        height: 22
+      spriteId: aad6d2e37d730d24aaabfab7091c4689
+    - name: FlyingMine_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 20
+        y: 19
+        width: 24
+        height: 24
+      spriteId: 2e730af76f9ce8d4d9badce347e5eca0
+    - name: FlyingMine_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 20
+        y: 19
+        width: 24
+        height: 23
+      spriteId: 09b9928a360e1cf4b8c5607172e30452
+    - name: FlyingMine_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 20
+        y: 19
+        width: 24
+        height: 24
+      spriteId: 1ec8691cd64cdf047b469a0ce134d657
+    - name: FlyingMine_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 20
+        y: 20
+        width: 24
+        height: 22
+      spriteId: d8707fe2b35c7fe42a6fc2147c08fd94
+    - name: FlyingMine_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 20
+        y: 20
+        width: 24
+        height: 22
+      spriteId: 2100454388c2d6c4b9282e5f97468e93
+    - name: FlyingMine_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 20
+        y: 20
+        width: 24
+        height: 22
+      spriteId: 785c7da8999e88f4abd125c0c80a8c43
+    - name: FlyingMine_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 20
+        y: 19
+        width: 24
+        height: 23
+      spriteId: 493764ed06ae4aa4f94e59650625598f
+    - name: FlyingMine_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 20
+        y: 19
+        width: 24
+        height: 23
+      spriteId: 86bb1b8a6c8eb2d4ebef0b8663686ed9
+    - name: FlyingMine_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 20
+        y: 19
+        width: 24
+        height: 23
+      spriteId: 703b93a29ff06854e982180446c7a0ba
+    - name: FlyingMine_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 20
+        y: 20
+        width: 24
+        height: 22
+      spriteId: 6f1d14d0b78820d4aadf8ddc1a6c38e7
+    - name: FlyingMine_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 20
+        y: 19
+        width: 24
+        height: 23
+      spriteId: 8919bb68c7fe841428ab9323d7e8958f
+    - name: FlyingMine_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 7
+        width: 61
+        height: 57
+      spriteId: fca0b77971298f842a1dcb06f9d5b201
+    - name: FlyingMine_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: 15
+        width: 64
+        height: 46
+      spriteId: c5b0c4fb164137e4b97c2c055152fbda
+    - name: FlyingMine_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 6
+        y: 11
+        width: 56
+        height: 53
+      spriteId: 0366d367cf02d6e4fa74aa280adc2066
+    - name: FlyingMine_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 2
+        y: 6
+        width: 61
+        height: 56
+      spriteId: 82401f973fa61344796d65afb9dd1a95
+    - name: FlyingMine_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 1
+        y: 8
+        width: 57
+        height: 53
+      spriteId: e87221b8d0872e947abb07ba6b90c8c9
+    - name: FlyingMine_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 21
+        y: 12
+        width: 33
+        height: 37
+      spriteId: 741e0e5140160c645a799f110610ce77
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}
