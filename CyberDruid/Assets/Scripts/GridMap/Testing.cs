@@ -23,7 +23,7 @@ public class Testing : MonoBehaviour {
     }
 
     private void Update() {
-        Vector3 position = UtilsClass.GetMouseWorldPosition();
+        Vector3 position = GetMouseWorldPosition();
 
         if (Input.GetMouseButtonDown(0)) {
             //boolGrid.SetGridObject(position, true);
@@ -43,6 +43,24 @@ public class Testing : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha3)) { stringGrid.GetGridObject(position).AddNumber("3"); }
         */
     }
+
+    // Get Mouse Position in World with Z = 0f
+    public static Vector3 GetMouseWorldPosition() {
+        Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
+        vec.z = 0f;
+        return vec;
+    }
+    public static Vector3 GetMouseWorldPositionWithZ() {
+        return GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
+    }
+    public static Vector3 GetMouseWorldPositionWithZ(Camera worldCamera) {
+        return GetMouseWorldPositionWithZ(Input.mousePosition, worldCamera);
+    }
+    public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera) {
+        Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
+        return worldPosition;
+    }
+
 }
 
 public class HeatMapGridObject {
@@ -107,22 +125,4 @@ public class StringGridObject {
     public override string ToString() {
         return letters + "\n" + numbers;
     }
-
-
-    // Get Mouse Position in World with Z = 0f
-        public static Vector3 GetMouseWorldPosition() {
-            Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
-            vec.z = 0f;
-            return vec;
-        }
-        public static Vector3 GetMouseWorldPositionWithZ() {
-            return GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
-        }
-        public static Vector3 GetMouseWorldPositionWithZ(Camera worldCamera) {
-            return GetMouseWorldPositionWithZ(Input.mousePosition, worldCamera);
-        }
-        public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera) {
-            Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
-            return worldPosition;
-        }
 }
