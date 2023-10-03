@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TestSpell : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class TestSpell : MonoBehaviour
     public float minDamage;
     public float maxDamage;
     public float projectileForce;
+
+    // Assign the actions asset to this field in the inspector:
+    private GlobalInputActions Actions;
 
     [SerializeField]
     int numberOfProjectiles;
@@ -21,16 +25,26 @@ public class TestSpell : MonoBehaviour
         numberOfProjectiles = 1;
     }
 
+    private void Awake()
+    {
+        Actions = new GlobalInputActions();
+        Actions.Player.PrimaryFire.performed += OnPrimaryFire;
+        Actions.Player.SecondaryFire.performed += OnSecondaryFire;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // if left click then instantiate projectile
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot(numberOfProjectiles);
-        }
+    }
 
-        if ((PlayerStats.playerStats.specialCharge == PlayerStats.playerStats.maxSpecialCharge) && Input.GetMouseButtonDown(1))
+    private void OnPrimaryFire(InputAction.CallbackContext context)
+    {
+        Shoot(numberOfProjectiles);
+    }
+
+    private void OnSecondaryFire(InputAction.CallbackContext context)
+    {
+        if (PlayerStats.playerStats.specialCharge == PlayerStats.playerStats.maxSpecialCharge)
         {
             Debug.Log("Here");
             numberOfProjectiles = 5;
@@ -76,5 +90,15 @@ public class TestSpell : MonoBehaviour
             spell.GetComponent<TestProjectile>().damage = Random.Range(minDamage, maxDamage);
         }
         
+    }
+
+    private void OnEnable()
+    {
+        Actions.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        Actions.Player.Disable();
     }
 }

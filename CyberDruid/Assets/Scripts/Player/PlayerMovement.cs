@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveDirection;
     private Animator animator;
+    
+    // Assign the actions asset to this field in the inspector:
+    private GlobalInputActions Actions;
 
     // Determine what direction player is facing
     private enum Facing {UP, DOWN, LEFT, RIGHT};
@@ -20,6 +24,12 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+    }
+
+    private void Awake()
+    {
+        Actions = new GlobalInputActions();
+        Actions.Player.Dash.performed += OnDash;
     }
 
     // Update is called once per frame
@@ -36,9 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
     void ProcessInputs()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(moveX, moveY).normalized;
+        Vector2 moveVector = Actions.Player.Move.ReadValue<Vector2>();
+        moveDirection = moveVector.normalized;
 
         // determine direction player is facing
         if (moveDirection.x == 1 & moveDirection.y == 0)
@@ -49,23 +58,22 @@ public class PlayerMovement : MonoBehaviour
             facingDir = Facing.UP;
         else if (moveDirection.x == 0f & moveDirection.y == -1f)
             facingDir = Facing.DOWN;
+    }
 
-        // DASH
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            targetPos = Vector2.zero;
+    private void OnDash(InputAction.CallbackContext context)
+    {
+        targetPos = Vector2.zero;
 
-            if (facingDir == Facing.UP)
-                targetPos.y = 1;
-            if (facingDir == Facing.DOWN)
-                targetPos.y = -1;
-            if (facingDir == Facing.LEFT)
-                targetPos.x = -1;
-            if (facingDir == Facing.RIGHT)
-                targetPos.x = 1;
+        if (facingDir == Facing.UP)
+            targetPos.y = 1;
+        if (facingDir == Facing.DOWN)
+            targetPos.y = -1;
+        if (facingDir == Facing.LEFT)
+            targetPos.x = -1;
+        if (facingDir == Facing.RIGHT)
+            targetPos.x = 1;
 
-            transform.Translate(targetPos * dashRange);
-        }
+        transform.Translate(targetPos * dashRange);
     }
 
     void Move()
@@ -78,5 +86,15 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("xDir", direction.x);
         animator.SetFloat("yDir", direction.y);
+    }
+
+    private void OnEnable()
+    {
+        Actions.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        Actions.Player.Disable();
     }
 }
