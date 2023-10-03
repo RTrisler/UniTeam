@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ba7a6c3d8fc0b4db42174d48fb51ec, type: 3}
+  m_Name: SWord
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1716222255850657700, guid: 03030c6a7e8a5d1448de42b6e8d1ac1b, type: 3}
+  type: 0
+  weight: 100
+  description: expensive sword for some reason
+  Attack: 100
+  Defense: 100
