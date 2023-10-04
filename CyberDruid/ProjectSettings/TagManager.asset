@@ -26,8 +26,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Layer1TM
+  - Layer2TM
   - 
   - 
   - 
@@ -44,4 +44,10 @@ TagManager:
     locked: 0
   - name: Rays
     uniqueID: 3007510301
+    locked: 0
+  - name: TMLayer1
+    uniqueID: 3276724381
+    locked: 0
+  - name: TMLayer2
+    uniqueID: 771504353
     locked: 0
