@@ -13,6 +13,7 @@ public class PropsAltar : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("TriggerEnter");
         targetColor = new Color(1, 1, 1, 1);
     }
 
