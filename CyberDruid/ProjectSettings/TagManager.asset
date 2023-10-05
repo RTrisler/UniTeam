@@ -16,8 +16,8 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - PlayerProjectile
-  - Player
-  - 
+  - PlayerLayer1
+  - PlayerLayer2
   - 
   - 
   - 
