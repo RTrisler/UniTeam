@@ -1063,36 +1063,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
   m_PrefabInstance: {fileID: 2098525659}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &649416148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649416143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 1fe5dbae6751e624e8f382cc1eccc210, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 865606904abd7b04fa591f8512c87094, type: 3}
-  m_SortingOrder: 0
---- !u!114 &649416149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649416143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18b2247e10f4ab46bb6f6c62bd5d2d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuDocument: {fileID: 649416148}
-  pauseMenuToggle: {fileID: 283506693}
 --- !u!4 &763279541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6644944589867386884, guid: 4be821d0b78ad5043985b57b738e951b, type: 3}
@@ -40776,6 +40746,10 @@ PrefabInstance:
       propertyPath: m_ParentUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5888595028353202319, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: pauseMenuToggle
+      value: 
+      objectReference: {fileID: 283506693}
     - target: {fileID: 8818923412449662945, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -40861,13 +40835,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2529044270794602387, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 649416148}
-    - targetCorrespondingSourceObject: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 649416149}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
 --- !u!1 &2131363995
 GameObject:
