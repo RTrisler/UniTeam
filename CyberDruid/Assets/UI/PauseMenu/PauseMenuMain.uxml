@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/PauseMenu/PauseMenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=2ceb1a43aaef6794b8bb6d2b84031b0f&amp;type=3#PauseMenuStyleSheet" />
     <ui:VisualElement name="Wrapper" style="flex-grow: 1; align-items: flex-start; justify-content: space-between; background-color: rgba(0, 0, 0, 0.81);">
         <ui:VisualElement name="ButtonsContainer" style="flex-grow: 1; align-self: auto; align-items: stretch; justify-content: space-between; margin-top: 10%; margin-bottom: 10%; margin-left: 5%;">
-            <ui:Button text="Resume" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Start_Button" enable-rich-text="true" class="pauseMenuButton" />
+            <ui:Button text="Resume" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Resume_Button" enable-rich-text="true" class="pauseMenuButton" />
             <ui:Button text="Load" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Load_Button" enable-rich-text="true" class="pauseMenuButton" />
             <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Options_Button" enable-rich-text="true" class="pauseMenuButton" />
             <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit_Button" enable-rich-text="true" class="pauseMenuButton" />

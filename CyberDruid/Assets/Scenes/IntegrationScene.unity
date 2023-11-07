@@ -674,6 +674,17 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &283506693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7340025309912238648, guid: 1ef228e5300cbcf459fff4e858cff112, type: 3}
+  m_PrefabInstance: {fileID: 1148775762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ec18beec03fdd42ac383c7698ee891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &330552908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4581918338887155568, guid: 4800845c2c4caa84eb6194552ae9c841, type: 3}
@@ -5283,6 +5294,10 @@ PrefabInstance:
       propertyPath: pauseMenuCanvas
       value: 
       objectReference: {fileID: 649416143}
+    - target: {fileID: 7340025309912238648, guid: 1ef228e5300cbcf459fff4e858cff112, type: 3}
+      propertyPath: pauseMenuDocument
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40711,6 +40726,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529044270794602387, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_Name
+      value: PauseMenuDocument
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529044270794602387, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549370348321227346, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_ParentUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888595028353202319, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: pauseMenuToggle
+      value: 
+      objectReference: {fileID: 283506693}
     - target: {fileID: 8818923412449662945, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -40791,8 +40830,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 3549370348321227346, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2529044270794602387, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
