@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,11 +30,6 @@ public class TestSpell : MonoBehaviour
         Actions.Player.SecondaryFire.performed += OnSecondaryFire;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnPrimaryFire(InputAction.CallbackContext context)
     {
         Shoot(numberOfProjectiles);
@@ -59,7 +52,7 @@ public class TestSpell : MonoBehaviour
         float angleStep = 360f / numberOfProjectiles;
         float angle = 0f;
 
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         if (numberOfProjectiles > 1)
         {
@@ -87,7 +80,7 @@ public class TestSpell : MonoBehaviour
             Vector2 myPos = transform.position;
             Vector2 direction = (mousePos - myPos).normalized;
             spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
-            spell.GetComponent<TestProjectile>().damage = Random.Range(minDamage, maxDamage);
+            spell.GetComponent<TestProjectile>().damage = UnityEngine.Random.Range(minDamage, maxDamage);
         }
         
     }

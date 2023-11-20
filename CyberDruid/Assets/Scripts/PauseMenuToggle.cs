@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 
@@ -9,18 +11,19 @@ public class PauseMenuToggle : MonoBehaviour
     public static bool isGamePaused = false;
     public GameObject pauseMenuCanvas;
 
+    [SerializeField]
+    private InputActionReference PauseButton;
+
     // Start is called before the first frame update
     void Start()
     {
+        PauseButton.action.Enable();
+        PauseButton.action.performed += TogglePause;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TogglePause(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+        TogglePause();
     }
 
     public void TogglePause()

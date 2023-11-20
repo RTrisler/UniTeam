@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,39 +43,19 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         Actions = new GlobalInputActions();
+
         Actions.Player.Dash.performed += OnDash;
+
+        Actions.Player.Move.performed += Move;
+        Actions.Player.Move.canceled += Move;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ProcessInputs();
-    }
-
-    // This function is called every fixed framerate frame. Physics should go here
-    void FixedUpdate()
-    {
-        Move();
-    }
-
-    // Determine the inputs and put them in a vector to be used by Fixed Update processes
-    void ProcessInputs()
+    void Move(InputAction.CallbackContext context)
     {
         Vector2 moveVector = Actions.Player.Move.ReadValue<Vector2>();
         moveDirection = moveVector.normalized;
+        UpdateFacingDirection();
 
-        // determine direction player is facing
-        if (moveDirection.x == 1 & moveDirection.y == 0)
-            facingDir = Facing.RIGHT;
-        else if (moveDirection.x == -1f & moveDirection.y == 0f)
-            facingDir = Facing.LEFT;
-        else if (moveDirection.x == 0f & moveDirection.y == 1f)
-            facingDir = Facing.UP;
-        else if (moveDirection.x == 0f & moveDirection.y == -1f)
-            facingDir = Facing.DOWN;
-    }
-    void Move()
-    {
         // Add velocity to the player rigidbody based on the moveDirection Vector
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         setAnimatorMovement(moveDirection);
@@ -93,6 +74,19 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(dashPosition);
             isDashing = false;
         }
+    }
+
+    private void UpdateFacingDirection()
+    {
+        // determine direction player is facing
+        if (moveDirection.x == 1 & moveDirection.y == 0)
+            facingDir = Facing.RIGHT;
+        else if (moveDirection.x == -1f & moveDirection.y == 0f)
+            facingDir = Facing.LEFT;
+        else if (moveDirection.x == 0f & moveDirection.y == 1f)
+            facingDir = Facing.UP;
+        else if (moveDirection.x == 0f & moveDirection.y == -1f)
+            facingDir = Facing.DOWN;
     }
 
     private void OnDash(InputAction.CallbackContext context)
