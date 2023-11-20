@@ -67,4 +67,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ec18beec03fdd42ac383c7698ee891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuCanvas: {fileID: 0}
+  pauseMenuCanvas: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+  PauseButton: {fileID: 8644292820273958126, guid: 75f887a9e31d57e44bd5acb03ad04f27, type: 3}
