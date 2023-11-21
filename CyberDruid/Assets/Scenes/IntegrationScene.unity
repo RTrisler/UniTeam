@@ -32516,6 +32516,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2529044270794602387, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059875788553261367, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_SendPointerHoverToParent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059875788553261367, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_DeselectOnBackgroundClick
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8818923412449662945, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
       propertyPath: m_Pivot.x
       value: 0
