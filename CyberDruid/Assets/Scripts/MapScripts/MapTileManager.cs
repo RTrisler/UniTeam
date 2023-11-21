@@ -18,6 +18,7 @@ public class MapTileManager : MonoBehaviour
 
     void Start()
     {
+        /*
         TileGridCoordinates = new List<Vector3Int>();
         for (int n = Tilemap.cellBounds.xMin; n < Tilemap.cellBounds.xMax; n++)
         {
@@ -30,10 +31,12 @@ public class MapTileManager : MonoBehaviour
                 }
             }
         }
+        */
     }
 
     void Update()
     {
         PlayerCurrentTile = Tilemap.WorldToCell(playerTransform.position);
+        Debug.Log("Current tile: " + PlayerCurrentTile);
     }
 }
