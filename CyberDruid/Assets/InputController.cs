@@ -12,6 +12,9 @@ public class InputController : MonoBehaviour
     public GlobalInputActions.PlayerActions playerActionMap;
     public GlobalInputActions.UIActions uiActionMap;
 
+    // Pattern for adding a new action map class variable
+    // public GlobalInputActions.NewActionMap newActionMap;
+
     /// <summary>
     /// Validate there is only one instance & delete any clones.
     /// </summary>
@@ -51,7 +54,19 @@ public class InputController : MonoBehaviour
     {
         playerActionMap.Disable();
         uiActionMap.Disable();
+
+        // Pattern for adding a new action map class variable
+        // newActionMap.Disable();
     }
+
+    // Pattern for adding a new action map class variable
+    // public void EnableNewActionMap() {
+    //     newActionMap.Enable();
+    // }
+
+    // public void DisableNewActionMap() {
+    //     newActionMap.Disable();
+    // }
 
     public void EnablePlayerActionMap()
     {
