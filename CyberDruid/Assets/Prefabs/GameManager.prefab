@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6115613600852119915}
   - component: {fileID: 1792138396129278823}
-  - component: {fileID: 7340025309912238648}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55,17 +54,3 @@ MonoBehaviour:
   specialSlider: {fileID: 0}
   coins: 0
   currencyText: {fileID: 0}
---- !u!114 &7340025309912238648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4687090192529902800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54ec18beec03fdd42ac383c7698ee891, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuCanvas: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
-  PauseButton: {fileID: 8644292820273958126, guid: 75f887a9e31d57e44bd5acb03ad04f27, type: 3}

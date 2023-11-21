@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,9 +20,6 @@ public class PlayerMovement : MonoBehaviour
     
 
     #endregion
-    
-    // Assign the actions asset to this field in the inspector:
-    private GlobalInputActions Actions;
 
     // Determine what direction player is facing
     private enum Facing {UP, DOWN, LEFT, RIGHT};
@@ -35,45 +29,28 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        InputController.Instance.playerActionMap.Dash.performed += OnDash;
+
+        InputController.Instance.playerActionMap.Move.performed += Move;
+        InputController.Instance.playerActionMap.Move.canceled += Move;
     }
 
     private void Awake()
     {
         // Get Rigidbody
         rb = GetComponent<Rigidbody2D>();
-
-        Actions = new GlobalInputActions();
-
-        Actions.Player.Dash.performed += OnDash;
-
-        Actions.Player.Move.performed += Move;
-        Actions.Player.Move.canceled += Move;
     }
 
     void Move(InputAction.CallbackContext context)
     {
-        Vector2 moveVector = Actions.Player.Move.ReadValue<Vector2>();
-        moveDirection = moveVector.normalized;
+        moveDirection = InputController.Instance.playerActionMap.Move.ReadValue<Vector2>();
+
         UpdateFacingDirection();
 
         // Add velocity to the player rigidbody based on the moveDirection Vector
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         setAnimatorMovement(moveDirection);
-
-        if (isDashing)
-        { 
-            Vector2 myPos = transform.position;
-            Vector2 dashPosition = myPos + moveDirection * dashAmount;
-
-            RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, moveDirection, dashAmount, dashLayerMask);
-            if (raycastHit2d.collider != null)
-            {
-                dashPosition = raycastHit2d.point;
-            }
-
-            rb.MovePosition(dashPosition);
-            isDashing = false;
-        }
     }
 
     private void UpdateFacingDirection()
@@ -93,33 +70,23 @@ public class PlayerMovement : MonoBehaviour
     {
         isDashing = true;
 
-        // targetPos = Vector2.zero;
+        Vector2 myPos = transform.position;
+        Vector2 dashPosition = myPos + moveDirection * dashAmount;
 
-        // if (facingDir == Facing.UP)
-        //     targetPos.y = 1;
-        // if (facingDir == Facing.DOWN)
-        //     targetPos.y = -1;
-        // if (facingDir == Facing.LEFT)
-        //     targetPos.x = -1;
-        // if (facingDir == Facing.RIGHT)
-        //     targetPos.x = 1;
+        RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, moveDirection, dashAmount, dashLayerMask);
+        if (raycastHit2d.collider != null)
+        {
+            dashPosition = raycastHit2d.point;
+        }
 
-        // transform.Translate(targetPos * dashRange);
+        rb.MovePosition(dashPosition);
+
+        isDashing = false;
     }
 
     private void setAnimatorMovement(Vector2 direction)
     {
         animator.SetFloat("xDir", direction.x);
         animator.SetFloat("yDir", direction.y);
-    }
-
-    private void OnEnable()
-    {
-        Actions.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        Actions.Player.Disable();
     }
 }

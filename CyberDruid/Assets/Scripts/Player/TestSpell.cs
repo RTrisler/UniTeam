@@ -3,14 +3,10 @@ using UnityEngine.InputSystem;
 
 public class TestSpell : MonoBehaviour
 {
-
     public GameObject projectile;
     public float minDamage;
     public float maxDamage;
     public float projectileForce;
-
-    // Assign the actions asset to this field in the inspector:
-    private GlobalInputActions Actions;
 
     [SerializeField]
     int numberOfProjectiles;
@@ -21,13 +17,9 @@ public class TestSpell : MonoBehaviour
     {
         radius = 10f;
         numberOfProjectiles = 1;
-    }
 
-    private void Awake()
-    {
-        Actions = new GlobalInputActions();
-        Actions.Player.PrimaryFire.performed += OnPrimaryFire;
-        Actions.Player.SecondaryFire.performed += OnSecondaryFire;
+        InputController.Instance.playerActionMap.PrimaryFire.performed += OnPrimaryFire;
+        InputController.Instance.playerActionMap.SecondaryFire.performed += OnSecondaryFire;
     }
 
     private void OnPrimaryFire(InputAction.CallbackContext context)
@@ -83,15 +75,5 @@ public class TestSpell : MonoBehaviour
             spell.GetComponent<TestProjectile>().damage = UnityEngine.Random.Range(minDamage, maxDamage);
         }
         
-    }
-
-    private void OnEnable()
-    {
-        Actions.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        Actions.Player.Disable();
     }
 }

@@ -40,12 +40,12 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": ""Dash"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""f0661246-5f5e-4b67-b70a-228c945be7de"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Digital"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""PrimaryFire"",
