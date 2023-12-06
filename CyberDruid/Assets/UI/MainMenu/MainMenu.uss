@@ -1,0 +1,28 @@
+.mainMenuButton {
+    font-size: 40px;
+    -unity-text-align: middle-left;
+    -unity-font: url('project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    background-color: rgba(188, 188, 188, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    flex-basis: auto;
+    align-self: flex-end;
+    max-width: none;
+    width: auto;
+    flex-grow: 1;
+}
+
+.mainMenuButton:hover {
+    color: rgb(255, 236, 76);
+}
+
+.mainMenuButton:focus {
+    color: rgb(255, 236, 76);
+}
+
+.mainMenuButton {
+}
