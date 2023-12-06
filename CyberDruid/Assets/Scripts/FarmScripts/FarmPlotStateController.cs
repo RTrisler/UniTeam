@@ -34,8 +34,10 @@ public class FarmPlotStateController : MonoBehaviour
 
     public void Update()
     {
+        
         /* TEST FARM SETUP */
         // Test input for initializing farm functionality test
+        /*
         if (Input.GetKeyDown(KeyCode.C) && !IsTestFarmCreated)
         {
             Debug.Log("DEBUG COMMAND: Initialize farm test key pressed...");
@@ -61,6 +63,7 @@ public class FarmPlotStateController : MonoBehaviour
         }
 
         /* PLAYER FARM INTERACTIONS */
+        /*
         if (Input.GetKeyDown(KeyCode.T))
         {
             TillFarmPlot();
@@ -75,6 +78,7 @@ public class FarmPlotStateController : MonoBehaviour
         {
             HarvestPlant();
         }
+        */
     }
 
     // Plant a seed on a tilled farm plot. Changes plot state from Grown > Arable.
