@@ -1,5 +1,5 @@
 .mainMenuButton {
-    font-size: 40px;
+    font-size: 30px;
     -unity-text-align: middle-left;
     -unity-font: url('project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
     color: rgb(255, 255, 255);
@@ -16,13 +16,60 @@
     flex-grow: 1;
 }
 
-.mainMenuButton:hover {
+.globalButton:hover {
     color: rgb(255, 236, 76);
+    -unity-background-image-tint-color: rgb(255, 236, 76);
 }
 
-.mainMenuButton:focus {
+.globalButton:focus {
     color: rgb(255, 236, 76);
+    -unity-background-image-tint-color: rgb(255, 236, 76);
 }
 
 .mainMenuButton {
+}
+
+.optionRow {
+    flex-grow: 1;
+    align-self: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    flex-basis: auto;
+    padding-top: 5px;
+    padding-right: 2%;
+    padding-bottom: 5px;
+    padding-left: 2%;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-image: none;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.47);
+    min-height: 50px;
+}
+
+.mainMenuOptionsLabel {
+    font-size: 30px;
+    -unity-text-align: middle-left;
+    -unity-font: url('project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    background-color: rgba(188, 188, 188, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    flex-basis: 50%;
+    align-self: flex-end;
+    max-width: none;
+    width: auto;
+    flex-grow: 1;
+}
+
+.globalButton:hover {
+}
+
+.globalButton:focus {
 }
