@@ -31,9 +31,9 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         InputController.Instance.playerActionMap.Dash.performed += OnDash;
-
         InputController.Instance.playerActionMap.Move.performed += Move;
         InputController.Instance.playerActionMap.Move.canceled += Move;
+        InputController.Instance.playerActionMap.FarmInteract.performed += OnFarmInteract;
     }
 
     private void Awake()
@@ -88,5 +88,10 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("xDir", direction.x);
         animator.SetFloat("yDir", direction.y);
+    }
+
+    private void OnFarmInteract(InputAction.CallbackContext context)
+    {
+        Debug.Log("I'm doing it! I'm really doing it!!");
     }
 }

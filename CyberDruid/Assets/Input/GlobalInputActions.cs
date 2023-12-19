@@ -82,6 +82,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""FarmInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""544b7e3d-4976-4a28-9e98-300bd212f65a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -291,6 +300,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""PointerPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32635793-9d38-4e2b-8249-9ff28237bca1"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""FarmInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -915,6 +935,7 @@ namespace UnityEngine.InputSystem
             m_Player_SecondaryFire = m_Player.FindAction("SecondaryFire", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
             m_Player_PointerPosition = m_Player.FindAction("PointerPosition", throwIfNotFound: true);
+            m_Player_FarmInteract = m_Player.FindAction("FarmInteract", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -995,6 +1016,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_SecondaryFire;
         private readonly InputAction m_Player_Pause;
         private readonly InputAction m_Player_PointerPosition;
+        private readonly InputAction m_Player_FarmInteract;
         public struct PlayerActions
         {
             private @GlobalInputActions m_Wrapper;
@@ -1005,6 +1027,7 @@ namespace UnityEngine.InputSystem
             public InputAction @SecondaryFire => m_Wrapper.m_Player_SecondaryFire;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
             public InputAction @PointerPosition => m_Wrapper.m_Player_PointerPosition;
+            public InputAction @FarmInteract => m_Wrapper.m_Player_FarmInteract;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1032,6 +1055,9 @@ namespace UnityEngine.InputSystem
                 @PointerPosition.started += instance.OnPointerPosition;
                 @PointerPosition.performed += instance.OnPointerPosition;
                 @PointerPosition.canceled += instance.OnPointerPosition;
+                @FarmInteract.started += instance.OnFarmInteract;
+                @FarmInteract.performed += instance.OnFarmInteract;
+                @FarmInteract.canceled += instance.OnFarmInteract;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1054,6 +1080,9 @@ namespace UnityEngine.InputSystem
                 @PointerPosition.started -= instance.OnPointerPosition;
                 @PointerPosition.performed -= instance.OnPointerPosition;
                 @PointerPosition.canceled -= instance.OnPointerPosition;
+                @FarmInteract.started -= instance.OnFarmInteract;
+                @FarmInteract.performed -= instance.OnFarmInteract;
+                @FarmInteract.canceled -= instance.OnFarmInteract;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1250,6 +1279,7 @@ namespace UnityEngine.InputSystem
             void OnSecondaryFire(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
             void OnPointerPosition(InputAction.CallbackContext context);
+            void OnFarmInteract(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
