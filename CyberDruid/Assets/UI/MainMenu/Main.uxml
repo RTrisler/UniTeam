@@ -6,10 +6,10 @@
                 <ui:VisualElement style="flex-grow: 1; align-items: stretch; justify-content: flex-start; align-self: auto; background-image: url(&apos;project://database/Assets/UI/MainMenu/fakeLogo.png?fileID=2800000&amp;guid=5b3c642fff39bd64f8ff3333216ba983&amp;type=3#fakeLogo&apos;); -unity-background-scale-mode: scale-to-fit; width: 90%; height: auto; -unity-background-image-tint-color: rgb(16, 231, 38); flex-basis: 90%; max-width: 900px;" />
             </ui:VisualElement>
             <ui:VisualElement name="ButtonsContainer" tabindex="-1" style="flex-grow: 1; align-self: auto; align-items: stretch; justify-content: space-between; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0; flex-basis: 50%; padding-top: 5%; padding-right: 10%; padding-bottom: 5%; padding-left: 0;">
-                <ui:Button text="New Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Resume_Button" enable-rich-text="true" tabindex="0" focusable="true" class="first-focused mainMenuButton" />
-                <ui:Button text="Load Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Load_Button" enable-rich-text="true" class="mainMenuButton" />
-                <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Options_Button" enable-rich-text="true" class="mainMenuButton" />
-                <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit_Button" enable-rich-text="true" class="mainMenuButton" />
+                <ui:Button text="New Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NewGame_Button" enable-rich-text="true" tabindex="0" focusable="true" class="first-focused mainMenuButton globalButton" />
+                <ui:Button text="Load Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoadGame_Button" enable-rich-text="true" class="mainMenuButton globalButton" />
+                <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Options_Button" enable-rich-text="true" class="mainMenuButton globalButton" />
+                <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Quit_Button" enable-rich-text="true" class="mainMenuButton globalButton" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
