@@ -25,11 +25,7 @@ public class FarmPlotStateController : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("TEST FARM SETUP:\n\n\n1. Press 'C' to create a test farm region with 6 nonarable farm plots.\n2. (After pressing 'C') Press 'X' to convert a nonarable farm plot to an arable farm plot.\n\n\nPLAYER-FARMPLOT INTERACTIONS:\n\n\n1. When standing on an arable farm plot, press 'T' to till the land.\n2. When standing on a tilled farm plot, press 'P' to plant a seed on the farm plot.\n3. To progress plant growth on all sown farm plots, press 'Z'.\n4. When standing on a farm plot with a fully grown plant, press 'H' to harvest and clear the farm plot.");
-
         FarmPlots = new Dictionary<GameObject, List<FarmPlot>>();
-
-        IsTestFarmCreated = false;
     }
 
     public void Update()
