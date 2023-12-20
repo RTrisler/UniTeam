@@ -94,6 +94,8 @@ public class MainMenuEventHandler : MonoBehaviour
         buttonQuit.clicked += () => Debug.Log("Quit Game button clicked");
     }
 
+    #region Options Menu
+
     private void EnableOptionsMenu()
     {
         // Enable the menu
@@ -113,8 +115,8 @@ public class MainMenuEventHandler : MonoBehaviour
             ChangeResolution(labelResolutionValue, DeltaDirection.Decrease));
         buttonIncreaseResolution.RegisterCallback<ClickEvent>((clickEvent) => 
             ChangeResolution(labelResolutionValue, DeltaDirection.Increase));
+        sliderAudio.RegisterCallback<ChangeEvent<float>>(ChangeAudio);
     }
-
 
     public void ChangeResolution(Button resolutionLabel, DeltaDirection deltaDirection)
     {
@@ -129,9 +131,13 @@ public class MainMenuEventHandler : MonoBehaviour
         }
         resolutionLabel.text = resolutions[newIndex];
 
-
         Debug.Log($"Resolution changed to {resolutionLabel.text}");
-
-
     }
+
+    public void ChangeAudio(ChangeEvent<float> sliderChanged)
+    {
+        Debug.Log($"Audio changed to {sliderChanged.newValue}");
+    }
+
+    #endregion
 }
