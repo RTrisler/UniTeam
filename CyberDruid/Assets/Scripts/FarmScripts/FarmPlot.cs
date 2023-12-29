@@ -6,4 +6,5 @@ public class FarmPlot : MonoBehaviour
 {
     public FarmPlotState State;
     public Vector3Int Location;
+    public PlantType? PlantType;
 }

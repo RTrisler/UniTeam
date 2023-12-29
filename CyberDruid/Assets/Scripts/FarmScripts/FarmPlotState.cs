@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum FarmPlotState
 {
-    Nonarable,
+    Arid,
     Arable,
     Tilled,
-    Sown,
+    Growing,
     Grown
 }

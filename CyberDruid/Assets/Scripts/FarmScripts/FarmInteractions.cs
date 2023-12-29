@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 
 public class FarmInteractions : MonoBehaviour
 {
@@ -24,15 +24,28 @@ public class FarmInteractions : MonoBehaviour
 
     private void OnFarmInteract(InputAction.CallbackContext context)
     {
-        
-        foreach (Vector3Int coordinate in TestFarmCoordinates)
+        foreach (Vector3Int coordinate in MapTileManager.TileGridCoordinates)
         {
             if (MapTileManager.PlayerCurrentTile == coordinate)
             {
                 Debug.Log("Pressed Q, standing on: " + coordinate);
-                // Player is standing on the target farm plot, and the farm plot state is appropriate
-                //targetFarmPlot = farmPlot;
-                break;   
+
+                FarmPlot targetFarmPlot = MapTileManager.FarmPlots.First(plot => plot.Location == coordinate);
+
+                switch (targetFarmPlot.State)
+                {
+                    case FarmPlotState.Arid:
+                        Debug.Log("This plot is arid, nothing can be planted here!");
+                        break;
+                    case FarmPlotState.Arable:
+                        Debug.Log("This plot is arable, anything can be planted here!");
+                        break;
+                    case FarmPlotState.Growing:
+                        Debug.Log("This plot is growing!");
+                        break;
+                }
+                
+                break;
             }
         }
         
