@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 /// Allows the pause menu to be toggled on and off 
 /// & holds the current pause state of the game
 /// </summary>
-public class PauseMenuToggle : MonoBehaviour
+public class TogglePause : MonoBehaviour
 {
     public static bool isGamePaused = false;
 
-    public static System.Action TogglePause;
+    public static System.Action TogglePauseEvent;
+
+    [SerializeField] private GameObject PauseMenuCanvas;
 
     /// <summary>
     /// Add input events for toggling the pause menu on and off
@@ -18,7 +20,7 @@ public class PauseMenuToggle : MonoBehaviour
     {
         InputController.Instance.playerActionMap.Pause.performed += OnTogglePause;
         InputController.Instance.uiActionMap.UnPause.performed += OnTogglePause;
-        TogglePause += OnTogglePause;
+        TogglePauseEvent += OnTogglePause;
     }
 
     /// <summary>
@@ -46,7 +48,7 @@ public class PauseMenuToggle : MonoBehaviour
             InputController.Instance.EnablePlayerActionMap();
         }
 
-        // Display or hide the pause menu UIDocument
-        transform.GetChild(0).gameObject.SetActive(isGamePaused);
+        // Enables the pause menu canvas
+        PauseMenuCanvas.gameObject.SetActive(isGamePaused);
     }
 }

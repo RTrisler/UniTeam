@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1743683988500955093
+--- !u!1001 &13203448210205395
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,12 +10,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
       propertyPath: m_Name
-      value: MenuCanvas Variant
+      value: PauseMenuCanvas Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898800092896122587, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 3562081161622382721}
     - target: {fileID: 2529044270794602387, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
       propertyPath: m_Name
-      value: MenuUIDocument
+      value: MainUIDocument
       objectReference: {fileID: 0}
+    - target: {fileID: 3549370348321227346, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      propertyPath: sourceAsset
+      value: 
+      objectReference: {fileID: 9197481963319205126, guid: 865606904abd7b04fa591f8512c87094, type: 3}
     - target: {fileID: 8818923412449662945, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -96,12 +108,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1898800092896122587, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
-    - {fileID: 8987898711919120533, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
-    - {fileID: 3059875788553261367, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
-    - {fileID: 4258869377653247319, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2030420122453894993}
   m_SourcePrefab: {fileID: 100100000, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+--- !u!1 &125949590054931736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 113045236929112011, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+  m_PrefabInstance: {fileID: 13203448210205395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2030420122453894993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125949590054931736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18b2247e10f4ab46bb6f6c62bd5d2d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: {fileID: 3562081161622382721}
+--- !u!114 &3562081161622382721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3549370348321227346, guid: b3b2b64df847f2944a85d8739887a237, type: 3}
+  m_PrefabInstance: {fileID: 13203448210205395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -2,6 +2,16 @@
 
 The procedural dungeon generation uses a random walk and binary space partitioning algorithms
 
+## Table of Contents
+- [Procedurally Generated Dungeon](#procedurally-generated-dungeon)
+  - [Table of Contents](#table-of-contents)
+  - [Algorithms](#algorithms)
+    - [Random Walk (Drunkard’s Walk)](#random-walk-drunkards-walk)
+  - [Implementation](#implementation)
+    - [ProceduralGenerationAlgorithms.cs](#proceduralgenerationalgorithmscs)
+    - [AbstractDungeonGenerator.cs](#abstractdungeongeneratorcs)
+    - [CorridorFirstDungeonGenerator.cs](#corridorfirstdungeongeneratorcs)
+
 ## Algorithms
 
 ### Random Walk (Drunkard’s Walk)
