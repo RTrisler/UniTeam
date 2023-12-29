@@ -1,37 +1,53 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.UIElements;
 
-public class PauseMenuEventHandler : MonoBehaviour
+public class PauseMenuEventHandler : BaseMenuEventHandler
 {
-    [SerializeField] private UIDocument pauseMenuDocument;
+    [SerializeField]
+    [InitialMenu]
+    private UIDocument MainMenu;
 
-    public void FocusOnDefaultElement()
+    protected override void SwitchDocuments(string documentName)
     {
-        GetComponent<UIDocument>().rootVisualElement.
-            Q<VisualElement>(className: "first-focused").Focus();
+        DisableAllMenus();
+
+        switch (documentName)
+        {
+            case nameof(MainMenu):
+                EnableMainMenu();
+                FocusOnDefaultElement(MainMenu);
+                break;
+            default:
+                Debug.LogError("Invalid document name");
+                break;
+        }
     }
 
-    /// <summary>
-    /// Focus on the default element and register the button events.
-    /// </summary>
-    private void OnEnable()
+    protected override void DisableAllMenus()
     {
-        // For some reason it doesn't work the first time the pause menu is opened, but it does every time after.
-        FocusOnDefaultElement();
+        MainMenu.gameObject.SetActive(false);
+    }
+
+    #region Main Menu
+
+    private void EnableMainMenu()
+    {
+        // Enable the menu
+        MainMenu.gameObject.SetActive(true);
 
         // Gather the elements
-        VisualElement root = pauseMenuDocument.GetComponent<UIDocument>().rootVisualElement;
+        VisualElement root = MainMenu.GetComponent<UIDocument>().rootVisualElement;
         Button buttonResume = root.Q<Button>("Resume_Button");
         Button buttonLoad = root.Q<Button>("Load_Button");
         Button buttonOptions = root.Q<Button>("Options_Button");
         Button buttonExit = root.Q<Button>("Exit_Button");
 
         // Register Clicked events
-        buttonResume.clicked += () => PauseMenuToggle.TogglePause();
+        buttonResume.clicked += () => TogglePause.TogglePauseEvent();
         buttonLoad.clicked += () => Debug.Log("Load");
         buttonOptions.clicked += () => Debug.Log("Options");
         buttonExit.clicked += () => Debug.Log("Exit to Main Menu");
     }
+
+    #endregion
 }
