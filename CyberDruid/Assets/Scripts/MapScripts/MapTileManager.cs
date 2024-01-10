@@ -6,8 +6,9 @@ using UnityEngine.Tilemaps;
 
 public class FarmSpriteReference
 {
-    public GameObject seedObject;
-    public Vector3Int plotLocation;
+    public GameObject SeedObject;
+    public Vector3Int PlotLocation;
+    public PlantType PlantType;
 }
 
 public class MapTileManager : MonoBehaviour
@@ -86,7 +87,8 @@ public class MapTileManager : MonoBehaviour
         // Place seed sprite at center of farm tile
         GameObject seedReference = (GameObject) Instantiate(seedPrefab, centerOfTile, Quaternion.identity);
 
-        PlantSprites.Add(new FarmSpriteReference { seedObject = seedReference, plotLocation = farmPlotCoordinate });
+        // Add reference to plant sprites
+        PlantSprites.Add(new FarmSpriteReference { SeedObject = seedReference, PlotLocation = farmPlotCoordinate, PlantType = targetFarmPlot.PlantType.Value });
     }
 
     public void GrowSeed(Vector3Int farmPlotCoordinate)
@@ -97,14 +99,52 @@ public class MapTileManager : MonoBehaviour
         // Change farm plot state to grown
         targetFarmPlot.State = FarmPlotState.Grown;
 
+        // Remove old seed sprite, replace with grown seed sprite
+        GameObject oldSprite = PlantSprites.First(s => s.PlotLocation == farmPlotCoordinate).SeedObject;
+        Destroy(oldSprite);
+
+        // Remove reference to old plant sprite
+        int i = 0;
+        foreach (FarmSpriteReference farmReference in PlantSprites)
+        {
+            if (farmReference.PlotLocation == farmPlotCoordinate)
+                break;
+            i++;
+        }
+        PlantSprites.RemoveAt(i);
+
         // Caclulate world position from tile map coordinate
         Vector3 centerOfTile = Tilemap.GetCellCenterWorld(farmPlotCoordinate);
 
+        // Place seed sprite at center of farm tile
+        GameObject seedReference = (GameObject) Instantiate(growingSeedPrefab, centerOfTile, Quaternion.identity);
+
+        // Add reference to plant sprites
+        PlantSprites.Add(new FarmSpriteReference { SeedObject = seedReference, PlotLocation = farmPlotCoordinate, PlantType = targetFarmPlot.PlantType.Value });
+    }
+
+    public void HarvestPlant(Vector3Int farmPlotCoordinate)
+    {
+        // Find and update target farm plot
+        FarmPlot targetFarmPlot = FarmPlots.First(plot => plot.Location == farmPlotCoordinate);
+
+        // Change farm plot state to arable, allow for new seeds to be planted here
+        targetFarmPlot.State = FarmPlotState.Arable;
+        
         // Remove old seed sprite, replace with grown seed sprite
-        GameObject oldSprite = PlantSprites.First(s => s.plotLocation == farmPlotCoordinate).seedObject;
+        GameObject oldSprite = PlantSprites.First(s => s.PlotLocation == farmPlotCoordinate).SeedObject;
         Destroy(oldSprite);
 
-        // Place seed sprite at center of farm tile
-        Instantiate(growingSeedPrefab, centerOfTile, Quaternion.identity);
+        // Update reference to plant sprites
+        int i = 0;
+        foreach (FarmSpriteReference farmReference in PlantSprites)
+        {
+            if (farmReference.PlotLocation == farmPlotCoordinate)
+                break;
+            i++;
+        }
+        PlantSprites.RemoveAt(i);
+
+        // TODO: Add plant to inventory
     }
 }

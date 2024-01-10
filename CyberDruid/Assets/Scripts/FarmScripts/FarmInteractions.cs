@@ -49,6 +49,11 @@ public class FarmInteractions : MonoBehaviour
                         MapTileManager.GrowSeed(farmPlotCoordinate);
                         Debug.Log("The plant is done growing!");
                         break;
+                    case FarmPlotState.Grown:
+                        Debug.Log("Harvesting plant!");
+                        MapTileManager.HarvestPlant(farmPlotCoordinate);
+                        Debug.Log("Plant added to inventory!");
+                        break;
                 }
                 
                 break;

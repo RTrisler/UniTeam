@@ -972,50 +972,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5055698509961064898, guid: 6d6991dbbdeecb1488bbf78c063d1235, type: 3}
   m_PrefabInstance: {fileID: 882147675}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &446743379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 446743381}
-  - component: {fileID: 446743380}
-  m_Layer: 0
-  m_Name: FarmManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &446743380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446743379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3fcbedbbe84024398af4d0f65b05e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &446743381
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446743379}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &568979410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32458,7 +32414,7 @@ Tilemap:
       - {fileID: -20121071, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
       - {fileID: -53555942, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
       - {fileID: 1441162608, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: 25, z: 0}
@@ -32572,7 +32528,7 @@ Tilemap:
       - {fileID: -20121071, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
       - {fileID: -53555942, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
       - {fileID: 1441162608, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -41403,5 +41359,4 @@ SceneRoots:
   - {fileID: 2098525659}
   - {fileID: 2033488290}
   - {fileID: 795177052}
-  - {fileID: 446743381}
   - {fileID: 1401855848}
