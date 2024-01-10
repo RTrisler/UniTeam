@@ -1001,11 +1001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3fcbedbbe84024398af4d0f65b05e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FarmRegions: []
-  MapTileManager: {fileID: 730063286}
-  _prefab_FarmRegion: {fileID: 4315102657991690143, guid: cb1e716580839134abc9919670dae7e8, type: 3}
-  _prefab_FarmPlot: {fileID: 1524905162526532590, guid: 60d96186373184f44877c9e12a560015, type: 3}
-  IsTestFarmCreated: 0
 --- !u!4 &446743381
 Transform:
   m_ObjectHideFlags: 0
@@ -1158,9 +1153,12 @@ MonoBehaviour:
   - {x: -14, y: 9, z: 0}
   - {x: -13, y: 9, z: 0}
   - {x: -12, y: 9, z: 0}
+  FarmPlots: []
   Tilemap: {fileID: 1836160844}
   aridSoil: {fileID: 11400000, guid: d5da06cacb51b4f989ed0d97ea9544d6, type: 2}
   arableSoil: {fileID: 11400000, guid: 461fd57cc8d454975b3731ad0789a6af, type: 2}
+  seedPrefab: {fileID: 7985719286768965961, guid: 093f97184aa3743a981b0cb993ccc221, type: 3}
+  growingSeedPrefab: {fileID: 7872249726141088825, guid: eef044340a6c14a5e9616de244fbae21, type: 3}
   playerTransform: {fileID: 1409613311}
 --- !u!156049354 &730063287
 Grid:
@@ -32574,7 +32572,7 @@ Tilemap:
       - {fileID: -20121071, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
       - {fileID: -53555942, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
       - {fileID: 1441162608, guid: 96b4d012fb74db64c813ab1d64ece04f, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
