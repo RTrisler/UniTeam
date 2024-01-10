@@ -1,44 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Movement
 {
     #region Public Variables
-    public float moveSpeed;
     public float dashAmount = 15f;
 
     #endregion 
 
     #region Private Variables
-    
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Vector2 moveDirection;
-    private Vector2 targetPos;
     private bool isDashing = false;
     [SerializeField] private LayerMask dashLayerMask;
     
 
     #endregion
 
-    // Determine what direction player is facing
-    private enum Facing {UP, DOWN, LEFT, RIGHT};
-    private Facing facingDir = Facing.UP;
-
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        base.Start();
 
         InputController.Instance.playerActionMap.Dash.performed += OnDash;
         InputController.Instance.playerActionMap.Move.performed += Move;
         InputController.Instance.playerActionMap.Move.canceled += Move;
-    }
-
-    private void Awake()
-    {
-        // Get Rigidbody
-        rb = GetComponent<Rigidbody2D>();
     }
 
     void Move(InputAction.CallbackContext context)
@@ -50,19 +34,6 @@ public class PlayerMovement : MonoBehaviour
         // Add velocity to the player rigidbody based on the moveDirection Vector
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         setAnimatorMovement(moveDirection);
-    }
-
-    private void UpdateFacingDirection()
-    {
-        // determine direction player is facing
-        if (moveDirection.x == 1 & moveDirection.y == 0)
-            facingDir = Facing.RIGHT;
-        else if (moveDirection.x == -1f & moveDirection.y == 0f)
-            facingDir = Facing.LEFT;
-        else if (moveDirection.x == 0f & moveDirection.y == 1f)
-            facingDir = Facing.UP;
-        else if (moveDirection.x == 0f & moveDirection.y == -1f)
-            facingDir = Facing.DOWN;
     }
 
     private void OnDash(InputAction.CallbackContext context)
@@ -81,11 +52,5 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(dashPosition);
 
         isDashing = false;
-    }
-
-    private void setAnimatorMovement(Vector2 direction)
-    {
-        animator.SetFloat("xDir", direction.x);
-        animator.SetFloat("yDir", direction.y);
     }
 }
