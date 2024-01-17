@@ -9,6 +9,7 @@ public class FarmInteractions : MonoBehaviour
     [SerializeField]
     MapTileManager MapTileManager;
     public List<Vector3Int> TestFarmCoordinates;
+    public InvetoryObject inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class FarmInteractions : MonoBehaviour
                     case FarmPlotState.Arable:
                         Debug.Log("This plot is arable, anything can be planted here!");
                         // Remove 1 seed from inventory
+                        inventory.RemoveItem();
                         Debug.Log("Planting seed...");
                         // Place seed graphic on farm tile
                         MapTileManager.PlantSeed(farmPlotCoordinate);
@@ -59,7 +61,5 @@ public class FarmInteractions : MonoBehaviour
                 break;
             }
         }
-        
-        Debug.Log("I'm doing it! I'm really doing it!!");
     }
 }

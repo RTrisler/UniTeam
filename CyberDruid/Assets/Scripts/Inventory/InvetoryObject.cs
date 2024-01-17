@@ -4,11 +4,10 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName ="Inventory System/Inventory")]
-
-
 public class InvetoryObject : ScriptableObject
 {
     public List<InventorySlot> BackPack = new List<InventorySlot>();
+    public InventorySlot SelectedItem;
     public float maxWeight = 100.0f;
 
     [SerializeField] private float currentWeight;
@@ -25,6 +24,7 @@ public class InvetoryObject : ScriptableObject
     {
         get { return currentWeight; }
     }
+
     public void AddItem(ItemObject _item, float _amount, float _weight)
     {
         if (CurrentWeight + (_amount * _weight) <= maxWeight)
@@ -49,11 +49,27 @@ public class InvetoryObject : ScriptableObject
         {
             Debug.LogWarning("Item cannot be added. Weight limit exceeded.");
         }
-        CalculateCurrentWeight();
 
+        CalculateCurrentWeight();
     }
 
+    public void RemoveItem()
+    {
+        /*
+        for (int i = 0; i < BackPack.Count; i++)
+        {
+            if (BackPack[i].item == _item)
+            {
+                BackPack[i].AddAmount(_amount);
+                BackPack[i].AddWeight(_weight);
+                hasItem = true;
+                break;
+            }
+        }
+        */
+    }
 }
+
 [System.Serializable]
 public class InventorySlot
 {
@@ -74,5 +90,4 @@ public class InventorySlot
     {
         weight += value;
     }
-   
 }
